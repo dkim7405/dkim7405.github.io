@@ -12,3 +12,7 @@ body {
   background-color: #f4f4f5;
   font-family: 'Gilroy', sans-serif;
 }
+
+.border-custom {
+  border-width: 1.3px;
+}
