@@ -7,13 +7,13 @@ import './index.css';
 const Information = ({ title, info }) => {
     return (
         <div className="flex flex-row">
-            <h2 className="text-zinc-900 text-xl md:text-2xl lg:text-3xl xl:text-4xl py-4 px-4 sm:px-8 text-left">
+            <h2 className="text-zinc-900 text-xl pb-8 px-4 sm:px-8 text-left">
                 {title}
             </h2>
-            <h2 className="text-zinc-900 text-xl md:text-2xl lg:text-3xl xl:text-4xl py-4 text-left">
+            <h2 className="text-zinc-900 text-xl pb-8 text-left">
                 ·
             </h2>
-            <h2 className="text-zinc-900 text-xl md:text-2xl lg:text-3xl xl:text-4xl pl-8 py-4 text-left">
+            <h2 className="text-zinc-900 text-xl pl-8 pb-8 text-left">
                 {info}
             </h2>
         </div>
@@ -38,18 +38,18 @@ const SocialLinks = () => {
 
 const ContactsPage = () => {
   return (
-    <section className="w-full min-h-screen bg-zinc-100 py-8 font-sans relative">
+    <section className="w-full min-h-screen bg-zinc-100 py-16 font-sans relative">
         <h2 className="text-zinc-900 text-3xl md:text-4xl lg:text-5xl xl:text-6xl pb-8 px-4 sm:px-8 text-right">
             Contacts
         </h2>
 
         <div className="flex flex-row h-96">
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col justify-center -translate-x-2">
                 <Information title="Phone" info="626 . 524 . 9685" />
                 <Information title="Email" info="dongkim7405@gmail.com" />
                 <Information title="Location" info="5500 Wabash Ave, Terre Haute, IN"/>
             </div>
-            <div className="flex-grow flex justify-end items-center">
+            <div className="flex-grow flex justify-end items-center -translate-y-6">
                 <SocialLinks />
             </div>
         </div>

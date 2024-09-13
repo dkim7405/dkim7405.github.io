@@ -3,15 +3,7 @@ import { ArrowRight, ChevronLeft, ChevronRight} from 'lucide-react';
 import { motion } from 'framer-motion';
 
 import './index.css';
-
-const projectsCard = [
-    { name: 'Project 1', img: './image/project1.png'},
-    { name: 'Project 2', img: './image/project2.png'},
-    { name: 'Project 3', img: './image/project3.png'},
-    { name: 'Project 4', img: './image/project4.png'},
-    { name: 'Project 5', img: './image/project5.png'},
-    { name: 'Project 6', img: './image/project6.png'}
-];
+import projectsCard from './projectsInfo';
 
 const ProjectsPage = () => {
     const scrollRef = useRef(null);
@@ -58,11 +50,11 @@ const ProjectsPage = () => {
                     ref={scrollRef}
                     className="flex overflow-x-auto space-x-6 pb-8 pl-4 pr-4 bg-zinc-100 scrollbar-hide">
                     {projectsCard.map((project, index) => (
-                        <div key={index} className="flex-shrink-0 w-72 h-96 bg-zinc-500 rounded-lg overflow-hidden relative group">
-                            <img src={project.img} alt={project.name} className="w-full h-full object-cover"/>
+                        <div key={index} className="flex-shrink-0 w-72 h-96 bg-zinc-500 rounded-3xl overflow-hidden relative group">
+                            <img src={project.image} alt={project.title} className="w-full h-full object-cover"/>
                             <div className="absolute h-full bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-800 to-transparent p-2">
                                 <h3 className="text-zinc-100 text-lg font-sans absolute bottom-8 left-4">
-                                    {project.name}
+                                    {project.title}
                                 </h3>
                             </div>
                             <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
