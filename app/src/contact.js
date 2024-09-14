@@ -38,7 +38,7 @@ const SocialLinks = () => {
 
 const ContactsPage = () => {
   return (
-    <section className="w-full min-h-screen bg-zinc-100 py-16 font-sans relative">
+    <section className="w-full min-h-screen bg-zinc-100 pt-8 font-sans relative">
         <h2 className="text-zinc-900 text-3xl md:text-4xl lg:text-5xl xl:text-6xl pb-8 px-4 sm:px-8 text-right">
             Contacts
         </h2>

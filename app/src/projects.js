@@ -41,7 +41,7 @@ const ProjectsPage = () => {
 
     return (
         <section className="w-full h-screen bg-zinc-100 pb-8 pt-8 font-sans snap-start relative">
-            <h2 className="text-zinc-900 text-3xl md:text-4xl lg:text-5xl xl:text-6xl pt-6 pb-10 pl-8 pr-8">
+            <h2 className="text-zinc-900 text-3xl md:text-4xl lg:text-5xl xl:text-6xl pb-10 pl-8 pr-8">
                 Projects
             </h2>
 

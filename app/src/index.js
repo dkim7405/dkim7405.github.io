@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactFullpage from '@fullpage/react-fullpage';
 
 import FrontPage from './front';
 import AboutPage from './about';
@@ -8,17 +9,32 @@ import ContactPage from './contact.js';
 
 import './index.css';
 
-const Portfolio = () => {
+const Portfolio = () => (
+  <ReactFullpage
+    //fullpage options
+    licenseKey={'YOUR_KEY_HERE'} // Get your license key from https://alvarotrigo.com/fullPage/pricing/
+    scrollingSpeed={1000} // Options here
 
-  return (
-    <div>
-      <FrontPage />
-      <AboutPage />
-      <ProjectsPage />
-      <ContactPage />
-    </div>
-  );
-};
+    render={({ state, fullpageApi }) => {
+      return (
+        <ReactFullpage.Wrapper>
+          <div className="section">
+            <FrontPage />
+          </div>
+          <div className="section">
+            <AboutPage />
+          </div>
+          <div className="section">
+            <ProjectsPage />
+          </div>
+          <div className="section">
+            <ContactPage />
+          </div>
+        </ReactFullpage.Wrapper>
+      );
+    }}
+  />
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Portfolio />);

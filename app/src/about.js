@@ -12,7 +12,7 @@ const AboutPage = () => {
 
   return (
     <section className="w-full min-h-screen bg-zinc-100 py-8 font-sans relative">
-      <h2 className="text-zinc-900 text-3xl md:text-4xl lg:text-5xl xl:text-6xl py-6 px-4 sm:px-8 text-right">
+      <h2 className="text-zinc-900 text-3xl md:text-4xl lg:text-5xl xl:text-6xl pb-4 px-4 sm:px-8 text-right">
         About
       </h2>
 
