@@ -1,15 +1,22 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { ArrowRight, ChevronLeft, ChevronRight} from 'lucide-react';
+import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import './index.css';
 import projectsCard from './projectsInfo';
 
 const ProjectsPage = () => {
+    const navigate = useNavigate();
+
     const scrollRef = useRef(null);
     const [scrollProgress, setScrollProgress] = useState(0);
     const [showLeftButton, setShowLeftButton] = useState(false);
     const [showRightButton, setShowRightButton] = useState(true);
+
+    const handleCardClick  = (index) => {
+        navigate(`/projectDescription#${index}`);
+    };
 
     useEffect(() => {
         const elementOn = scrollRef.current;
@@ -50,19 +57,23 @@ const ProjectsPage = () => {
                     ref={scrollRef}
                     className="flex overflow-x-auto space-x-6 pb-8 pl-4 pr-4 bg-zinc-100 scrollbar-hide">
                     {projectsCard.map((project, index) => (
-                        <div key={index} className="flex-shrink-0 w-72 h-96 bg-zinc-500 rounded-3xl overflow-hidden relative group">
-                            <img src={project.image} alt={project.title} className="w-full h-full object-cover"/>
-                            <div className="absolute h-full bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-800 to-transparent p-2">
-                                <h3 className="text-zinc-100 text-lg font-sans absolute bottom-8 left-4">
-                                    {project.title}
-                                </h3>
-                            </div>
-                            <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div className="w-12 h-12 bg-transparent rounded-full border-2 border-zinc-100 flex items-center justify-center hover:bg-zinc-600 transition-colors duration-300">
-                                    <ArrowRight className="text-zinc-100" size={24}/>
+                        <Link to={`/projectDescription#${index}`}>
+                            <div key={index} className="flex-shrink-0 w-72 h-96 bg-zinc-500 rounded-3xl overflow-hidden relative group"
+                                onClick={() => handleCardClick(index)}
+                            >
+                                <img src={project.image} alt={project.title} className="w-full h-full object-cover"/>
+                                <div className="absolute h-full bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-800 to-transparent p-2">
+                                    <h3 className="text-zinc-100 text-lg font-sans absolute bottom-8 left-4">
+                                        {project.title}
+                                    </h3>
+                                </div>
+                                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div className="w-12 h-12 bg-transparent rounded-full border-2 border-zinc-100 flex items-center justify-center hover:bg-zinc-600 transition-colors duration-300">
+                                        <ArrowRight className="text-zinc-100" size={24}/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 

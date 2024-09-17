@@ -4,7 +4,7 @@ import ReactFullpage from '@fullpage/react-fullpage';
 
 import FrontPage from './front';
 import AboutPage from './about';
-import ProjectsPage from './projects';
+import ProjectExplore from './projectsExplore.js';
 import ContactPage from './contact.js';
 
 import './index.css';
@@ -25,7 +25,7 @@ const Portfolio = () => (
             <AboutPage />
           </div>
           <div className="section">
-            <ProjectsPage />
+            <ProjectExplore />
           </div>
           <div className="section">
             <ContactPage />
