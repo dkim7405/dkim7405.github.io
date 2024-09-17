@@ -1,58 +1,49 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
 
-const projectDescriptions = [
-    { title: 'Project 1', description: 'Description of project 1' },
-    { title: 'Project 2', description: 'Description of project 2' },
-    { title: 'Project 3', description: 'Description of project 3' },
-    { title: 'Project 4', description: 'Description of project 4' },
-    { title: 'Project 5', description: 'Description of project 5' },
-    { title: 'Project 6', description: 'Description of project 6' },
-    { title: 'Project 7', description: 'Description of project 7' },
-    { title: 'Project 8', description: 'Description of project 8' }
-];
+import projectsCard from './projectsInfo';
 
 const ProjectSection = ({ project }) => (
-    <div className="section">
-        <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-4">{project.title}</h2>
-            <p className="text-lg mb-4">{project.description}</p>
-        </div>
+  <div className="section">
+    <div className="container mx-auto px-4">
+      <h2 className="text-3xl font-bold mb-4">{project.title}</h2>
+      <p className="text-lg mb-4">{project.description}</p>
+      {/* Add more project details here */}
     </div>
+  </div>
 );
 
-const ProjectsDescriptionPage = ({ initialIndex = 0 }) => {
-    const fullpageApiRef = useRef(null);
+const ProjectsDescriptionPage = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const initialIndex = parseInt(id, 10);
 
-    useEffect(() => {
-        if (fullpageApiRef.current && initialIndex >= 0 && initialIndex < projectDescriptions.length) {
-            fullpageApiRef.current.moveTo(initialIndex + 1);
-        }
-    }, [initialIndex]);
+  useEffect(() => {
+    if (isNaN(initialIndex) || initialIndex < 0 || initialIndex >= projectsCard.length) {
+      navigate('/');
+    }
+  }, [initialIndex, navigate]);
 
-    return (
-        <ReactFullpage
-            licenseKey={'YOUR_KEY_HERE'} // Replace with your actual license key
-            scrollingSpeed={300}
-            navigation={true}
-            navigationPosition={'right'}
-            showActiveTooltip={true}
-            afterLoad={(origin, destination, direction) => {
-                console.log("Loaded section", destination.index);
-            }}
-            render={({ state, fullpageApi }) => {
-                fullpageApiRef.current = fullpageApi;
-
-                return (
-                    <ReactFullpage.Wrapper>
-                        {projectDescriptions.map((project, index) => (
-                            <ProjectSection key={index} project={project} />
-                        ))}
-                    </ReactFullpage.Wrapper>
-                );
-            }}
-        />
-    );
+  return (
+    <ReactFullpage
+      licenseKey={'YOUR_KEY_HERE'} // Replace with your actual license key
+      navigation={true}
+      navigationPosition={'right'}
+      showActiveTooltip={true}
+      scrollingSpeed={1000}
+      afterLoad={(origin, destination, direction) => {
+        console.log("Loaded section", destination.index);
+      }}
+      render={({ state, fullpageApi }) => (
+        <ReactFullpage.Wrapper>
+          {projectsCard.map((project, index) => (
+            <ProjectSection key={index} project={project} />
+          ))}
+        </ReactFullpage.Wrapper>
+      )}
+    />
+  );
 };
 
 export default ProjectsDescriptionPage;
