@@ -1,59 +1,88 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
-import './index.css';
-
-const Information = ({ title, info }) => {
-    return (
-        <div className="flex flex-row">
-            <h2 className="text-zinc-900 text-xl pb-8 px-4 sm:px-8 text-left">
-                {title}
-            </h2>
-            <h2 className="text-zinc-900 text-xl pb-8 text-left">
-                ·
-            </h2>
-            <h2 className="text-zinc-900 text-xl pl-8 pb-8 text-left">
-                {info}
-            </h2>
-        </div>
-    );
+// Define animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
 };
 
-const SocialLinks = () => {
-    return (
-        <div className="flex flex-col items-end space-y-8 pr-8">
-            <a href="https://github.com/dkim7405" target="_blank" rel="noopener noreferrer" className="transform transition-transform duration-300 hover:scale-110">
-                <FontAwesomeIcon icon={faGithub} size="2x" className="text-zinc-900" />
-            </a>
-            <a href="https://linkedin.com/in/dkim7405" target="_blank" rel="noopener noreferrer" className="transform transition-transform duration-300 hover:scale-110">
-                <FontAwesomeIcon icon={faLinkedin} size="2x" className="text-zinc-900" />
-            </a>
-            <a href="https://instagram.com/l.kim0704/" target="_blank" rel="noopener noreferrer" className="transform transition-transform duration-300 hover:scale-110">
-                <FontAwesomeIcon icon={faInstagram} size="2x" className="text-zinc-900" />
-            </a>
-        </div>
-    );
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 100
+    }
+  }
 };
+
+const ContactInfo = ({ title, info }) => (
+  <motion.div
+    variants={itemVariants}
+    className="flex flex-col mb-8"
+  >
+    <span className="text-zinc-500 text-sm font-normal">{title}</span>
+    <span className="text-zinc-900 text-lg font-normal">{info}</span>
+  </motion.div>
+);
+
+const SocialLink = ({ href, icon }) => (
+  <motion.a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    variants={itemVariants}
+    whileHover={{ scale: 1.1 }}
+    className="text-zinc-900 hover:text-zinc-600 transition-colors"
+  >
+    <FontAwesomeIcon icon={icon} size="lg" />
+  </motion.a>
+);
 
 const ContactsPage = () => {
-  return (
-    <section className="w-full min-h-screen bg-zinc-100 pt-8 font-sans relative">
-        <h2 className="text-zinc-900 text-3xl md:text-4xl lg:text-5xl xl:text-6xl pb-8 px-4 sm:px-8 text-right">
-            Contacts
-        </h2>
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-        <div className="flex flex-row h-96">
-            <div className="flex flex-col justify-center -translate-x-2">
-                <Information title="Phone" info="626 . 524 . 9685" />
-                <Information title="Email" info="dongkim7405@gmail.com" />
-                <Information title="Location" info="5500 Wabash Ave, Terre Haute, IN"/>
-            </div>
-            <div className="flex-grow flex justify-end items-center -translate-y-6">
-                <SocialLinks />
-            </div>
-        </div>
-    </section>
+  return (
+    <motion.section
+      ref={ref}
+      className="w-full min-h-screen bg-zinc-100 p-8 font-sans flex flex-col justify-center items-center"
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
+    >
+      <motion.h1
+        variants={itemVariants}
+        className="text-zinc-900 text-4xl md:text-5xl lg:text-6xl mb-12 font-normal"
+      >
+        Contacts
+      </motion.h1>
+
+      <div className="w-full max-w-md">
+        <ContactInfo title="Phone" info="626 . 524 . 9685" />
+        <ContactInfo title="Email" info="dongkim7405@gmail.com" />
+        <ContactInfo title="Location" info="5500 Wabash Ave, Terre Haute, IN" />
+      </div>
+
+      <motion.div
+        variants={itemVariants}
+        className="flex justify-center space-x-8 mt-12"
+      >
+        <SocialLink href="https://github.com/dkim7405" icon={faGithub} />
+        <SocialLink href="https://linkedin.com/in/dkim7405" icon={faLinkedin} />
+        <SocialLink href="https://instagram.com/l.kim0704/" icon={faInstagram} />
+      </motion.div>
+    </motion.section>
   );
 };
 

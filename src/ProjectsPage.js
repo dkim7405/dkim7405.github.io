@@ -32,10 +32,10 @@ const ProjectCard = ({ project }) => {
           </div>
         )}
         <div className="p-4 flex flex-col flex-grow">
-          <h3 className="text-zinc-900 text-xl font-sans mb-2 truncate">{project.name}</h3>
+          <h3 className="text-zinc-900 text-xl font-normal mb-2 truncate">{project.name}</h3>
           <div className="flex flex-wrap gap-2">
             {project.skills.map((skill, index) => (
-              <span key={index} className="text-zinc-600 text-xs font-sans py-1 px-2 bg-zinc-300 rounded-full whitespace-nowrap">
+              <span key={index} className="text-zinc-600 text-xs font-normal py-1 px-2 bg-zinc-300 rounded-full whitespace-nowrap">
                 {skill}
               </span>
             ))}
@@ -72,7 +72,7 @@ const ProjectsPage = () => {
   return (
     <motion.section
       ref={ref}
-      className="w-full min-h-screen bg-zinc-100 py-16 font-sans overflow-hidden"
+      className="w-full min-h-screen bg-zinc-100 py-16 font-normal overflow-hidden"
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
@@ -80,7 +80,7 @@ const ProjectsPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           variants={itemVariants}
-          className="text-zinc-900 text-4xl md:text-5xl lg:text-6xl mb-12 text-center"
+          className="text-zinc-900 text-4xl md:text-5xl lg:text-6xl mb-12 text-center font-normal"
         >
           Projects
         </motion.h2>

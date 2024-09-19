@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import './index.css';
 
 const AboutPage = () => {
-  const skills = ['HTML', 'CSS', 'JS', 'PYTHON', 'C', 'C#', 'KOTLIN', 'SQL', 'JAVA', 'AI'];
+  const skills = ['AI', 'ASSEMBLY', 'AWS', 'C', 'C#', 'CSS', 'FIGMA', 'GIT', 'HTML', 'JAVA', 'JS', 'KOTLIN', 'PYTHON', 'REACT', 'SQL', 'UNITY'];
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
@@ -29,7 +29,7 @@ const AboutPage = () => {
   return (
     <motion.div 
       ref={ref}
-      className="w-screen min-h-screen bg-zinc-100 flex flex-col p-8 font-sans"
+      className="w-screen min-h-screen bg-zinc-100 flex flex-col p-8 font-normal"
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
@@ -41,7 +41,7 @@ const AboutPage = () => {
       <div className="flex flex-col md:flex-row justify-between flex-grow">
         <motion.div className="md:w-1/2 pr-4 space-y-8" variants={containerVariants}>
           <motion.div variants={itemVariants}>
-            <h2 className="text-zinc-900 text-3xl md:text-4xl lg:text-5xl mb-4">Dongyeon Kim</h2>
+            <h2 className="text-zinc-900 text-3xl md:text-4xl lg:text-5xl mb-4 font-normal">Dongyeon Kim</h2>
             <p className="text-zinc-700 text-lg">(Leo)</p>
             <p className="text-zinc-700 text-lg">2005.07.04</p>
             <p className="text-zinc-700 text-lg">Terre Haute, IN</p>
@@ -68,7 +68,7 @@ const AboutPage = () => {
           <motion.div variants={itemVariants}>
             <h3 className="text-zinc-900 text-2xl mb-2">Education</h3>
             <motion.div className="mb-4" variants={itemVariants}>
-              <p className="text-zinc-900 text-lg font-semibold">Rose-Hulman Institute of Technology</p>
+              <p className="text-zinc-900 text-lg font-normal">Rose-Hulman Institute of Technology</p>
               <p className="text-zinc-700">September 2023 - May 2027</p>
               <ul className="list-disc list-inside text-zinc-700 mt-2">
                 <motion.li variants={itemVariants}>Object-Oriented Programming</motion.li>
@@ -78,7 +78,7 @@ const AboutPage = () => {
               </ul>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <p className="text-zinc-900 text-lg font-semibold">South Pasadena High School</p>
+              <p className="text-zinc-900 text-lg font-normal">South Pasadena High School</p>
               <p className="text-zinc-700">August 2019 - June 2023</p>
               <ul className="list-disc list-inside text-zinc-700 mt-2">
                 <motion.li variants={itemVariants}>AP Computer Science A</motion.li>
