@@ -1,3 +1,5 @@
+import { image } from "framer-motion/client";
+
 const ProjectInfo = [
     {
         id: 1,
@@ -49,7 +51,7 @@ const ProjectInfo = [
         type: 'App & Hardware',
         date: '2023.09 - 2023.11',
         role: 'Software Developer',
-        description: 'Program that helps you to control your computer with hand gestures. It uses AI to detect your hand gestures and Arduino to send signals to your computer. It is a project that I worked on with one other person who designed the hardware.',
+        description: 'Program that helps you to control your computer with hand gestures. It uses AI to detect your hand gestures and Arduino to send signals to your computer.',
         image: `${process.env.PUBLIC_URL}/assets/GestureRemote/GestureRemoteCover.png`,
         skills: ['PYTHON', 'AI', 'ARDUINO'],
         imagesList: [
@@ -70,67 +72,172 @@ const ProjectInfo = [
                 ]
             }
         ]
+    },
+
+    {
+        id: 3,
+        name: 'Flappy Bird AI',
+        type: 'Program',
+        date: '2024.01 - 2024.02',
+        role: 'Software Developer',
+        description: 'Program that trains Flappy Bird using neural network and genetic algorithm to play the game automatically.',
+        skills: ['JS', 'AI', 'HTML', 'CSS', 'GENETIC ALGORITHM'],
+        image: `${process.env.PUBLIC_URL}/assets/FlappyBirdAi/FlappyBirdAiCover.png`,
+        imagesList: [
+            { caption: 'Neural Network', src: `${process.env.PUBLIC_URL}/assets/FlappyBirdAi/FlappyBirdAi1.png` },
+            { caption: 'Initial Training', src: `${process.env.PUBLIC_URL}/assets/FlappyBirdAi/FlappyBirdAi2.png` },
+            { caption: 'AI Training', src: `${process.env.PUBLIC_URL}/assets/FlappyBirdAi/FlappyBirdAi3.png` },
+            { caption: 'AI Playing', src: `${process.env.PUBLIC_URL}/assets/FlappyBirdAi/FlappyBirdAi4.png` }
+        ],
+        development: [
+            {
+                title: 'AI Training',
+                descriptions: [
+                    'Used genetic algorithm and neural network to train the AI to play the game',
+                    'Evaluated the fitness of the AI based on the distance it traveled',
+                    'Implemented the AI to play the game in real-time'
+                ]
+            }
+        ]
+    },
+
+    {
+        id: 4,
+        name: 'Pixel Fire',
+        type: 'Game',
+        date: '2021.07 - 2023.03',
+        role: 'Game Developer',
+        description: 'Game that was created through Unity. It is a 2D platformer game where you try to avoid enemy attacks and survive waves.',
+        skills: ['UNITY', 'C#', 'PHOTOSHOP'],
+        image: `${process.env.PUBLIC_URL}/assets/PixelFire/PixelFireCover.png`,
+        imagesList: [
+            { caption: 'Gameplay', src: `${process.env.PUBLIC_URL}/assets/PixelFire/PixelFire1.png` },
+            { caption: 'Boss Fight', src: `${process.env.PUBLIC_URL}/assets/PixelFire/PixelFire2.png` },
+            { caption: 'Game Over Screen', src: `${process.env.PUBLIC_URL}/assets/PixelFire/PixelFire3.png` }
+        ],
+        development: [
+            {
+                title: 'Game Development',
+                descriptions: [
+                    'Designed the game using Unity and Photoshop for the assets',
+                    'Developed the game using C# and Unity Engine',
+                    'Implemented the player movement and enemy AI',
+                    'Created the level design and game mechanics'
+                ]
+            }
+        ]
+    },
+
+    {
+        id: 5,
+        name: 'Perfect Keyboard',
+        type: 'Program',
+        date: '2024.02 - 2023.03',
+        role: 'Software Developer',
+        description: 'Program that finds the fastest keyboard layout to type based on most popular phrases used in SMS. It uses genetic algorithm to find layout that minimizes the distance when typing.',
+        skills: ['PYTHON', 'AI', 'OPENCV'],
+        image: `${process.env.PUBLIC_URL}/assets/PerfectKeyboard/PerfectKeyboardCover.png`,
+        imagesList: [
+            { caption: 'Optimized Layout', src: `${process.env.PUBLIC_URL}/assets/PerfectKeyboard/Keyboard1.png` },
+            { caption: 'Optimized Layout Json Save', src: `${process.env.PUBLIC_URL}/assets/PerfectKeyboard/Keyboard2.png` }
+        ],
+        development: [
+            {
+                title: 'Genetic Algorithm',
+                descriptions: [
+                    'Used genetic algorithm to find the fastest keyboard layout',
+                    'Evaluated the fitness of the layout based on the distance when typing',
+                    'Visualized the layout using OpenCV',
+                    'Tested the layout using most popular phrases in SMS'
+                ]
+            }
+        ]
+    },
+
+    {
+        id: 6,
+        name: 'LSTM Stock Prediction',
+        type: 'Program',
+        date: '2024.02 - 2023.04',
+        role: 'Software Developer',
+        description: 'Program that predicts stock prices using LSTM neural network. It uses historical stock data to train the model and predict future stock prices.',
+        skills: ['PYTHON', 'SCI-KIT LEARN', 'AI'],
+        image: `${process.env.PUBLIC_URL}/assets/LSTMPrediction/LSTMStockPredictionCover.png`,
+        imagesList: [
+            { caption: 'Stock Prediction : NVIDIA', src: `${process.env.PUBLIC_URL}/assets/LSTMPrediction/LSTMPrediction1.png` },
+            { caption: 'Stock Prediction : SAMSUNG', src: `${process.env.PUBLIC_URL}/assets/LSTMPrediction/LSTMPrediction4.png` },
+            { caption: 'Training Log', src: `${process.env.PUBLIC_URL}/assets/LSTMPrediction/LSTMPrediction2.png` },
+            { caption: 'Dataset : SAMSUNG', src: `${process.env.PUBLIC_URL}/assets/LSTMPrediction/LSTMPrediction3.png` }
+        ],
+        development: [
+            {
+                title: 'Stock Prediction',
+                descriptions: [
+                    'Used LSTM neural network to predict stock prices',
+                    'Trained the model using historical stock data with each window size of 50',
+                    'Evaluated the model using test data',
+                    'Visualized the prediction using matplotlib'
+                ]
+            }
+        ]
+    },
+
+    {
+        id: 7,
+        name: 'Coin Detection',
+        type: 'Program',
+        date: '2023.06 - 2023.07',
+        role: 'Software Developer',
+        description: 'Program that detects coins in an image using OpenCV. It uses image processing techniques to detect coins and calculate the total number of the coins.',
+        skills: ['PYTHON', 'OPENCV'],
+        image: `${process.env.PUBLIC_URL}/assets/CoinDetection/CoinDetectionCover.png`,
+        imagesList: [
+            { caption: 'Original Image', src: `${process.env.PUBLIC_URL}/assets/CoinDetection/CoinDetection1.png` },
+            { caption: 'Thresholded Image', src: `${process.env.PUBLIC_URL}/assets/CoinDetection/CoinDetection2.png` },
+            { caption: 'Detected Image', src: `${process.env.PUBLIC_URL}/assets/CoinDetection/CoinDetection3.png` },
+        ],
+        development: [
+            {
+                title: 'Coin Detection',
+                descriptions: [
+                    'Used OpenCV to detect coins in an image',
+                    'Implemented image processing techniques to detect coins',
+                    'Calculated the total number of coins in the image',
+                    'Thresholded the image to detect the coins',
+                    'Eroded and dilated the image to remove noise'
+                ]
+            }
+        ]
+    },
+
+    {
+        id: 8,
+        name: 'CIFAR-10 Image Classification',
+        type: 'Program',
+        date: '2023.08 - 2023.09',
+        role: 'Software Developer',
+        description: 'Program that classifies images in CIFAR-10 dataset using Convolutional Neural Network. It uses Tensorflow to train the model and classify the images. It is a project that I worked on to learn more about AI and image classification.',
+        skills: ['PYTHON', 'AI', 'TENSORFLOW', 'KERAS'],
+        image: `${process.env.PUBLIC_URL}/assets/CIFAR/CIFAR10ClassificationCover.png`,
+        imagesList: [
+            { caption: 'Training Log', src: `${process.env.PUBLIC_URL}/assets/CIFAR/CIFAR1.png` },
+            { caption: 'Training Loss and Accuracy', src: `${process.env.PUBLIC_URL}/assets/CIFAR/CIFAR2.png` },
+            { caption: 'Model', src: `${process.env.PUBLIC_URL}/assets/CIFAR/CIFAR3.png` },
+            { caption: 'Output Predictions', src: `${process.env.PUBLIC_URL}/assets/CIFAR/CIFAR4.png` }
+        ],
+        development: [
+            {
+                title: 'Image Classification',
+                descriptions: [
+                    'Used Convolutional Neural Network to classify images in CIFAR-10 dataset',
+                    'Trained the model using Tensorflow and Keras',
+                    'Evaluated the model using test data',
+                    'Visualized the training loss and accuracy'
+                ]
+            }
+        ]
+
     }
-    // {
-    //     id: 3,
-    //     name: 'Flappy Bird AI',
-    //     type: 'Program',
-    //     date: '2024.01 - 2024.02',
-    //     role: 'Software Developer',
-    //     description: 'Program that plays Flappy Bird game using AI. It uses a genetic algorithm to train the AI to play the game. It is a project that I worked on to learn more about AI and game development.',
-    //     image: `${process.env.PUBLIC_URL}/assets/FlappyBirdAiCover.png`,
-    //     skills: ['Javascript', 'AI', 'HTML']
-    // },
-    // {
-    //     id: 4,
-    //     name: 'Pixel Fire',
-    //     type: 'Game',
-    //     date: '2021.07 - 2023.03',
-    //     role: 'Game Developer',
-    //     description: 'Game that I made using Unity. It is a 2D platformer game where you try to avoid enemy attacks and survive waves. It is a project that I worked on to learn about Unity.',
-    //     image: `${process.env.PUBLIC_URL}/assets/PixelFireCover.png`,
-    //     skills: ['Unity', 'C#']
-    // },
-    // {
-    //     id: 5,
-    //     name: 'Perfect Keyboard',
-    //     type: 'Program',
-    //     date: '2024.02 - 2023.03',
-    //     role: 'Software Developer',
-    //     description: 'Program that finds the fastest keyboard layout to type based on most popular phrases used in SMS. It uses genetic algorithm to find layout that minimizes the distance when typing. It is a project that I worked on to learn more about genetic algorithms and optimization.',
-    //     image: `${process.env.PUBLIC_URL}/assets/PerfectKeyboardCover.png`,
-    //     skills: ['Python', 'AI', 'OpenCV']
-    // },
-    // {
-    //     id: 6,
-    //     name: 'LSTM Stock Prediction',
-    //     type: 'Program',
-    //     date: '2024.02 - 2023.04',
-    //     role: 'Software Developer',
-    //     description: 'Program that predicts stock prices using LSTM neural network. It uses historical stock data to train the model and predict future stock prices. It is a project that I worked on to learn more about AI and stock market.',
-    //     image: `${process.env.PUBLIC_URL}/assets/LSTMStockPredictionCover.png`,
-    //     skills: ['Python', 'Sci-Kit Learn', 'AI']
-    // },
-    // {
-    //     id: 7,
-    //     name: 'Coin Detection',
-    //     type: 'Program',
-    //     date: '2023.06 - 2023.07',
-    //     role: 'Software Developer',
-    //     description: 'Program that detects coins in an image using OpenCV. It uses image processing techniques to detect coins and calculate the total number of the coins. It is a project that I worked on to learn more about image processing and computer vision.',
-    //     image: `${process.env.PUBLIC_URL}/assets/CoinDetectionCover.png`,
-    //     skills: ['Python', 'OpenCV']
-    // },
-    // {
-    //     id: 9,
-    //     name: 'CIFAR-10 Image Classification',
-    //     type: 'Program',
-    //     date: '2023.08 - 2023.09',
-    //     role: 'Software Developer',
-    //     description: 'Program that classifies images in CIFAR-10 dataset using Convolutional Neural Network. It uses Tensorflow to train the model and classify the images. It is a project that I worked on to learn more about AI and image classification.',
-    //     image: `${process.env.PUBLIC_URL}/assets/CIFAR10ClassificationCover.png`,
-    //     skills: ['Python', 'AI', 'Tensorflow']
-    // }
 ];
 
 export default ProjectInfo;
