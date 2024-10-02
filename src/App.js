@@ -54,12 +54,12 @@ const MainPortfolio = () => {
             fullpageApiRef.current = fullpageApi;
     
             return (
-            <ReactFullpage.Wrapper>
-                <Section anchor="home" component={FrontPage} />
-                <Section anchor="about" component={AboutPage} />
-                <Section anchor="projects" component={ProjectsPage} />
-                <Section anchor="contact" component={ContactPage} />
-            </ReactFullpage.Wrapper>
+                <ReactFullpage.Wrapper>
+                    <Section anchor="home" component={FrontPage} />
+                    <Section anchor="about" component={AboutPage} />
+                    <Section anchor="projects" component={ProjectsPage} />
+                    <Section anchor="contact" component={ContactPage} />
+                </ReactFullpage.Wrapper>
             );
         }}
         />
