@@ -16,11 +16,11 @@ const FrontPage = () => {
 
     return (
         <div className="w-screen h-screen bg-zinc-100 flex flex-col p-8 font-normal">
-            <header className="text-zinc-900 text-lg md:text-xl lg:text-2xl mb-auto">
+            <header className="text-zinc-900 text-lg md:text-xl lg:text-2xl">
                 DONGYEON KIM
             </header>
 
-            <div className="flex flex-col items-center justify-center space-y-4 md:space-y-6 lg:space-y-8 pb-48">
+            <div className="flex flex-col flex-grow items-center justify-center space-y-4 md:space-y-6 lg:space-y-8 pb-48">
                 <p className="text-zinc-900 text-m md:text-base lg:text-lg text-center">
                     Designer . Developer . Learner
                 </p>
